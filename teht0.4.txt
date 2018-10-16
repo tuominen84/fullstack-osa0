@@ -1,0 +1,43 @@
+kayttaja->selain: Syöttää uuden muistiinpanon tekstikenttään
+kayttaja->selain: Klikkaa "Talleta"
+
+selain->palvelin: POST new_note
+note left of palvelin
+    uuden muistiinpanon tiedot 
+    lähetetään palvelimelle POST:n mukana
+end note
+note left of palvelin
+    palvelin käsittelee uuden muistiin panon
+end note
+palvelin->selain: status 302, redirect
+
+note over kayttaja,selain,palvelin: Toiminta samoin kuin sivun ensimmäisessä latauksessa
+selain->palvelin: GET main.css
+note left of palvelin
+    haetaan sivun perus sivun tyylitiedosto 
+    stylesheet-tagin perusteella
+end note
+palvelin->selain: status 200, style sheet
+
+selain->palvelin: GET main.js
+note left of palvelin
+    haetaan javascript-koodi html-tagin 
+    perusteella
+end note
+palvelin->selain: status 200, javascript
+
+note right of selain
+    aloita javascript koodin 
+    suoritus
+end note
+
+selain->palvelin: GET data.json
+note left of palvelin
+  haetaan javascript-koodi html-tagin perusteella
+end note
+palvelin->selain: status 200, json
+
+note left of selain
+ selain renderoi palvelimen palauttaman HTML:n
+ johon on upotetaan koodin perusteella jsonin data.
+end note
