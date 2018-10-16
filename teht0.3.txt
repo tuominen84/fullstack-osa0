@@ -1,0 +1,38 @@
+kayttaja->selain:
+note left of selain
+Käyttäjä klikkaa "muistiinpanot" linkkiä
+end note
+selain->palvelin: GET notes
+note left of palvelin
+  haetaan sivun perus HTML kuvaus
+end note
+palvelin->selain: status 200, sivun HTML-koodi
+
+selain->palvelin: GET main.css
+note left of palvelin
+  haetaan sivun perus sivun tyylitiedosto stylesheet-tagin perusteella
+end note
+palvelin->selain: status 200, style sheet
+
+selain->palvelin: GET main.js
+note left of palvelin
+  haetaan javascript-koodi html-tagin perusteella
+end note
+palvelin->selain: status 200, javascript
+
+note right of selain
+    aloita javascript koodin suoritys
+end note
+
+selain->palvelin: GET data.json
+note left of palvelin
+  haetaan javascript-koodi html-tagin perusteella
+end note
+palvelin->selain: status 200, json
+
+note left of selain
+ selain renderoi palvelimen palauttaman HTML:n
+ johon on upotetaan koodin perusteella jsonin data.
+end note
+
+
