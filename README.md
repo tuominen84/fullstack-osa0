@@ -14,5 +14,5 @@
 
 ## Tehtävä 6
 
-![Kaavio 0.5](teht0.5.png)
+![Kaavio 0.6](teht0.6.png)
 
