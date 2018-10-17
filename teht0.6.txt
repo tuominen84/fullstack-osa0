@@ -1,0 +1,17 @@
+kayttaja->selain: Syöttää uuden muistiinpanon tekstikenttään
+kayttaja->selain: Klikkaa "Talleta"
+
+selain->palvelin: POST new_note_spa
+note left of palvelin
+    uuden muistiinpanon tiedot 
+    lähetetään palvelimelle POST:n mukana json muodossa
+end note
+note left of palvelin
+    palvelin käsittelee uuden muistiin panon
+end note
+palvelin->selain: status 201, created
+
+note left of selain:
+    Javascript koodi muokkaa sivun DOM:a lisäten siihen 
+    uuden muistiinpanon HTML merkinnät
+end note
